@@ -94,14 +94,6 @@ public class Grid {
 		return list;
 	}
 	
-	//useless method :p 
-	public boolean rectColl(Node n1,Node n2){
-		return (n1.x <= n2.x+nodeSize)&&
-			   (n1.x+nodeSize >= n2.x)&&
-			   (n1.y <= n2.y+nodeSize)&&
-			   (n1.y+nodeSize >= n2.y);
-	}
-	
 	//computing the distance between two nodes
 	public int dist(Node a,Node b){
 		int xDist = Math.abs(a.x - b.x),
