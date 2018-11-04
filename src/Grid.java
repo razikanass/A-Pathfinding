@@ -46,9 +46,13 @@ public class Grid {
 						  grid[0][0].y,
 						  false);
 		
-		target = new Target(grid[gridSizeX-1][gridSizeY-1].x,
-							grid[gridSizeX-1][gridSizeY-1].y,
-							false);
+//		target = new Target(grid[gridSizeX-1][gridSizeY-1].x,
+//							grid[gridSizeX-1][gridSizeY-1].y,
+//							false);
+		
+		target = new Target(grid[5][5].x,
+				grid[5][5].y,
+				false);
 		
 	}
 
@@ -62,14 +66,7 @@ public class Grid {
 					g.setColor(Color.BLACK);
 				}
 				g.fillRect(node.x*nodeSize, node.y*nodeSize, nodeSize, nodeSize);
-				
-				g.setColor(start.color);
-				g.fillRect(start.x*nodeSize, start.y*nodeSize, nodeSize, nodeSize);
-				
-				g.setColor(target.color);
-				g.fillRect(target.x*nodeSize, target.y*nodeSize, nodeSize, nodeSize);
 			}
-			System.out.println();
 		}
 	}
 	
@@ -90,7 +87,6 @@ public class Grid {
 				}
 			}
 		}
-		System.out.println(list);
 		return list;
 	}
 	
