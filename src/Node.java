@@ -1,6 +1,6 @@
 /*
 	node representation
-	every node can keep track the it's parent
+	every node can keep track it's parent
 	according to the A* algorithm we need to calculate some values
 	to achieve the expected results h,c and f
 
