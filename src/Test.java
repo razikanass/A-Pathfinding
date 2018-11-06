@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -53,7 +55,7 @@ public class Test extends JPanel implements Runnable,MouseListener{
 	//MAIN
 	public static void main(String[] args) {
 		//window instance
-		new Window("A*Pathfinding",516,538,new Test());
+		new Window("A*Pathfinding",W,H,new Test());
 	}
 	
 	public void start(){
@@ -127,44 +129,41 @@ public class Test extends JPanel implements Runnable,MouseListener{
 	public void paintComponent(Graphics g){
 		
 		super.paintComponent(g);
-		
-		System.out.println("hello !!");
 	
 		g.setColor(Color.white);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
 		grid.render(g);
 		
-		for (Node node : closedSet) {
-			g.setColor(Color.RED);
-			g.fillRect(node.x*W/40, node.y*H/40, W/40, H/40);
-		}
-		
-		for (Node node : openSet) {
-			g.setColor(Color.GREEN);
-			g.fillRect(node.x*W/40, node.y*H/40, W/40, H/40);
-		}
-		if(showPath){
-			for(Node node : Grid.path){
-				g.setColor(Color.MAGENTA);
-				g.fillRect(node.x*W/40, node.y*H/40, W/40, H/40);
-	//			g.setColor(Color.BLACK);
-	//			g.drawString(node.x+","+node.y, (node.x+W/20)+(node.x+W/20)/2, (node.y+H/20)+(node.y+H/20)/2);
-			}
-		}
-		
-		g.setColor(grid.start.color);
-		g.fillRect(grid.start.x*grid.nodeSize, grid.start.y*grid.nodeSize, grid.nodeSize, grid.nodeSize);
-		
-		g.setColor(grid.target.color);
-		g.fillRect(grid.target.x*grid.nodeSize, grid.target.y*grid.nodeSize, grid.nodeSize, grid.nodeSize);
+//		for (Node node : closedSet) {
+//			g.setColor(Color.RED);
+//			g.fillRect(node.x*W/40, node.y*H/40, W/40, H/40);
+//		}
+//		
+//		for (Node node : openSet) {
+//			g.setColor(Color.GREEN);
+//			g.fillRect(node.x*W/40, node.y*H/40, W/40, H/40);
+//		}
+//		if(showPath){
+//			for(Node node : Grid.path){
+//				g.setColor(Color.MAGENTA);
+//				g.fillRect(node.x*W/40, node.y*H/40, W/40, H/40);
+//	//			g.setColor(Color.BLACK);
+//	//			g.drawString(node.x+","+node.y, (node.x+W/20)+(node.x+W/20)/2, (node.y+H/20)+(node.y+H/20)/2);
+//			}
+//		}
+//		
+//		g.setColor(grid.start.color);
+//		g.fillRect(grid.start.x*grid.nodeSize, grid.start.y*grid.nodeSize, grid.nodeSize, grid.nodeSize);
+//		
+//		g.setColor(grid.target.color);
+//		g.fillRect(grid.target.x*grid.nodeSize, grid.target.y*grid.nodeSize, grid.nodeSize, grid.nodeSize);
 		
 	}
 
 
 	@Override
 	public void mouseClicked(MouseEvent eve) {
-		System.out.println("hello clicked !");
 		showPath = !showPath;
 	}
 
