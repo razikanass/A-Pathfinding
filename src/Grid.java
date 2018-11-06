@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 /*
-	class that represents the Grid of the simulation
+	class that represents the Grid of the A*Pathfinding algorithm simulation
 */
 public class Grid {
 	//2D Array of nodes 
@@ -33,6 +33,8 @@ public class Grid {
 		
 		for(int x = 0; x < gridSizeX; x++){
 			for(int y = 0; y < gridSizeY; y++){
+				//Uniform random generated obstacles
+				//20% chance to generate an obstacle
 				float rand = (float)Math.random();
 				float proba = 0.8f;
 				if(rand < proba)
@@ -90,7 +92,7 @@ public class Grid {
 		return list;
 	}
 	
-	//computing the distance between two nodes
+	//computing the distance between two nodes (manhattan distance inluding diagonals)
 	public int dist(Node a,Node b){
 		int xDist = Math.abs(a.x - b.x),
 			yDist = Math.abs(a.y - b.y);
